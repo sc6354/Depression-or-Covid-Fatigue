@@ -96,3 +96,11 @@ wordcloud(words = Fd$word[-(1:5)], freq = Fd$freq, min.freq = 1,
           max.words=100, random.order=FALSE, rot.per=0.35, 
           colors=brewer.pal(8, "Set1"))
 
+###### Average words per tweet ######
+mean(depression_tweets$word_count, na.rm = TRUE)  
+mean(fatigue_tweets$word_count, na.rm = TRUE)  
+
+###### Emojis ######
+mean(depression_tweets$emoji_count, na.rm = TRUE)  
+mean(fatigue_tweets$emoji_count, na.rm = TRUE)  
+
