@@ -6,9 +6,9 @@ require(plyr)
 library(dplyr)
 
 ###### read in tweets datasets ######
-depression_tweets <- readtext('/Users/susanchen/Documents/Depression-or-Covid-Fatigue/data/20210312_0330_all_depression_tweets.csv')
+depression_tweets <- readtext('/Users/susanchen/Documents/Depression-or-Covid-Fatigue/data/20210312_0331_all_depression_tweets.csv')
 colnames(depression_tweets)[2] <- "created_at"
-fatigue_tweets <- readtext('/Users/susanchen/Documents/Depression-or-Covid-Fatigue/data/20210317_0330all_covid_tweets.csv')
+fatigue_tweets <- readtext('/Users/susanchen/Documents/Depression-or-Covid-Fatigue/data/20210317_0331all_covid_tweets.csv')
 colnames(fatigue_tweets)[2] <- "created_at"
 
 ####### Replace common characters on Twitter with their ASCII equivalents #######

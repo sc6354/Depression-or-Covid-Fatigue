@@ -12,8 +12,8 @@ library(wordcloud)
 library(RColorBrewer)
 
 ###### read in tweets datasets ######
-depression_tweets <- readtext('/Users/susanchen/Documents/Depression-or-Covid-Fatigue/data/20210312_0330_cleaned_depression_tweets.csv')
-fatigue_tweets <- readtext('/Users/susanchen/Documents/Depression-or-Covid-Fatigue/data/20210312_0330_cleaned_covidFatigue_tweets.csv')
+depression_tweets <- readtext('/Users/susanchen/Documents/Depression-or-Covid-Fatigue/data/cleaned_depression_tweets.csv')
+fatigue_tweets <- readtext('/Users/susanchen/Documents/Depression-or-Covid-Fatigue/data/cleaned_covidFatigue_tweets.csv')
 
 ###### top occurring words pre-stemming ######
 depression_tweets %>%
@@ -88,8 +88,8 @@ head(Fd, 10)
 
 #fatigue word cloud w/the top 5 word
 wordcloud(words = Fd$word, freq = Fd$freq, min.freq = 1,
-          max.words=100, random.order=FALSE, rot.per=0.55, 
-          colors=brewer.pal(8, "RdBu"), scale=c(2.5,.75))
+          max.words=100, random.order=TRUE, rot.per=0.35, 
+          colors=brewer.pal(8, "RdBu"), scale=c(2,.75))
 
 # fatigue word cloud w/o the top 5 word
 wordcloud(words = Fd$word[-(1:5)], freq = Fd$freq, min.freq = 1,
