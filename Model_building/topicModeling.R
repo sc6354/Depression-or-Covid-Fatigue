@@ -166,7 +166,7 @@ system.time({
                        control=list(alpha=.2,iter=iter,burnin=burnin, seed=1234, thin=thin))
          results_1k[i,] <- c(k, perplexity(fitted, newdata = valid_set,estimate_theta = TRUE, use_theta = TRUE))}
       return(results_1k)
-      }
+   }
 })
 
 # plot perplexity
@@ -205,7 +205,7 @@ tmResult2 <- posterior(topicModel, test_DTM)
 #topicNames <- apply(top5termsPerTopic, 2, paste, collapse=' ')
 #word_cloud(tmResult, 10)
 #word_cloud(tmResult, 16)
-   
+
 
 # Save topic model probabilities to train and test data sets 
 df <- as.data.frame(tmResult[['topics']])
@@ -525,14 +525,23 @@ tmResult3 <- posterior(topicModel, test_DTM2)
 df3 <- as.data.frame(tmResult3[['topics']])
 test_data2 <- cbind(test_data2, new_col = df3)  
 colnames(test_data2)[23:37] <- c('topic1', 'topic2', 'topic3', 'topic4', 'topic5', 
-                                'topic6', 'topic7', 'topic8', 'topic9', 'topic10',
-                                'topic11', 'topic12','topic13', 'topic14', 'topic15')
+                                 'topic6', 'topic7', 'topic8', 'topic9', 'topic10',
+                                 'topic11', 'topic12','topic13', 'topic14', 'topic15')
 
-test2_fit <- predict(fit3, test_data2)
+test2_fit <- predict(fit, test_data2)
 output5 <- tibble(data.frame(original = test_data2$label, predicted = test2_fit$.pred_class, stringsAsFactors = FALSE))
 confusionMatrix(output5$original, output5$predicted) 
 plot_cm2(confusionMatrix(output5$original, output5$predicted), 'Additional Testing Set')
-#Accuracy : 0.6753 
-#Kappa : 0.2778  
-#Sensitivity : 0.8462 
-#Specificity : 0.6453  
+
+# SVM, features list 1 
+#Accuracy : 0.6724
+#Kappa : 0.2681 
+#Sensitivity : 0.8723
+#Specificity : 0.6412
+
+#Lasso, Features 1 list 
+#Accuracy : 0.6552 
+#Kappa : 0.2238 
+#Sensitivity : 0.8718
+#Specificity : 0.6278
+
